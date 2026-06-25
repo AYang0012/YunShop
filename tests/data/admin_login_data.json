@@ -1,0 +1,17 @@
+[
+    {
+        "username": "admin",
+        "password": "admin123",
+        "expected": "admin"
+    },
+    {
+        "username": "admin",
+        "password": "wrong_password",
+        "expected": "用户名或密码错误"
+    },
+    {
+        "username": "",
+        "password": "admin123",
+        "expected": "请填写用户名"
+    }
+]

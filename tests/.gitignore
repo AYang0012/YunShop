@@ -1,0 +1,22 @@
+# Python 虚拟环境
+.venv/
+venv/
+
+# Python 缓存
+__pycache__/
+*.pyc
+*.pyo
+
+# pytest 缓存
+.pytest_cache/
+
+# Allure 报告
+reports/allure-results/
+reports/screenshots/
+reports/logs/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

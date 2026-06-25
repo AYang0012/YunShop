@@ -1,0 +1,22 @@
+[
+    {
+        "mobile": "13800138000",
+        "password": "Test@123",
+        "expected": "登录成功"
+    },
+    {
+        "mobile": "13800138000",
+        "password": "WrongPass123",
+        "expected": "用户名或密码错误"
+    },
+    {
+        "mobile": "",
+        "password": "Test@123",
+        "expected": "请填写手机号"
+    },
+    {
+        "mobile": "13800138000",
+        "password": "",
+        "expected": "请填写密码"
+    }
+]

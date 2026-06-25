@@ -1,0 +1,20 @@
+[
+    {
+        "mobile": "13900000001",
+        "password": "Test@123",
+        "confirm_password": "Test@123",
+        "expected": "注册成功"
+    },
+    {
+        "mobile": "13900000002",
+        "password": "123456",
+        "confirm_password": "123456",
+        "expected": "密码格式不正确"
+    },
+    {
+        "mobile": "13800138000",
+        "password": "Test@123",
+        "confirm_password": "Test@123",
+        "expected": "该手机号已注册"
+    }
+]
