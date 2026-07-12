@@ -6,7 +6,7 @@
     </header>
     <div class="main" v-if="goods">
       <div class="detail-top">
-        <div class="gallery"><img :src="goods.goodsThumb || `/api/images/goods/${goods.goodsId}`" :alt="goods.goodsName" class="main-img" /></div>
+        <div class="gallery"><img :src="imgUrl(goods.goodsThumb) || `/api/images/goods/${goods.goodsId}`" :alt="goods.goodsName" class="main-img" /></div>
         <div class="info">
           <h1 class="goods-title">{{ goods.goodsName }}</h1>
           <p class="desc">{{ goods.keywords }}</p>
@@ -36,6 +36,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { getGoodsDetail } from '@/api/goods'
 import { addToCart as apiAddToCart } from '@/api/cart'
+import { imgUrl } from '@/utils/img'
 
 const route = useRoute()
 const router = useRouter()

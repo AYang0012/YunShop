@@ -4,11 +4,11 @@ server:
 spring:
   application:
     name: yunshop
-  # 数据源配置
+  # 数据源配置（支持环境变量覆盖，用于云端部署）
   datasource:
-    url: jdbc:mysql://localhost:3306/yunshop?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true
-    username: root
-    password: 123456
+    url: ${DB_URL:jdbc:mysql://localhost:3306/yunshop?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai&createDatabaseIfNotExist=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:123456}
     driver-class-name: com.mysql.cj.jdbc.Driver
   # 文件上传
   servlet:

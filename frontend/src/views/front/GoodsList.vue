@@ -25,7 +25,7 @@
       </div>
       <div class="goods-grid">
         <div v-for="g in goodsList" :key="g.goodsId" class="g-card" @click="$router.push(`/goods/detail/${g.goodsId}`)">
-          <div class="g-thumb"><img :src="g.goodsThumb || `/api/images/goods/${g.goodsId}`" :alt="g.goodsName" class="thumb-img" /></div>
+          <div class="g-thumb"><img :src="imgUrl(g.goodsThumb) || `/api/images/goods/${g.goodsId}`" :alt="g.goodsName" class="thumb-img" /></div>
           <p class="g-name">{{ g.goodsName }}</p>
           <div class="g-price"><span class="price">¥{{ g.shopPrice }}</span><span class="sales">已售 {{ g.salesSum }}</span></div>
           <p class="g-time">上架 {{ formatDate(g.addTime) }}</p>
@@ -43,6 +43,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { getGoodsList } from '@/api/goods'
+import { imgUrl } from '@/utils/img'
 
 const route = useRoute()
 const goodsList = ref([])

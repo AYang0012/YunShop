@@ -37,7 +37,7 @@
             <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
               <div v-for="b in banners" :key="b.adId" class="carousel-slide">
                 <a :href="b.adLink || '#'" class="banner-link">
-                  <img :src="b.adImage || `/api/images/banner/${b.adId}`" :alt="b.adName" class="banner-img" />
+                  <img :src="imgUrl(b.adImage) || `/api/images/banner/${b.adId}`" :alt="b.adName" class="banner-img" />
                 </a>
               </div>
             </div>
@@ -53,7 +53,7 @@
           </div>
           <div v-else-if="banners.length === 1" class="banner-single">
             <a :href="banners[0].adLink || '#'" class="banner-link">
-              <img :src="banners[0].adImage || `/api/images/banner/${banners[0].adId}`" :alt="banners[0].adName" class="banner-img" />
+              <img :src="imgUrl(banners[0].adImage) || `/api/images/banner/${banners[0].adId}`" :alt="banners[0].adName" class="banner-img" />
             </a>
           </div>
           <div v-else class="banner-empty">品质生活，尽在云集</div>
@@ -75,7 +75,7 @@
         <div v-for="goods in floor.goodsList" :key="goods.goodsId" class="goods-card"
           @click="$router.push(`/goods/detail/${goods.goodsId}`)">
           <div class="goods-thumb">
-            <img :src="goods.goodsThumb || `/api/images/goods/${goods.goodsId}`" :alt="goods.goodsName" class="thumb-img" />
+            <img :src="imgUrl(goods.goodsThumb) || `/api/images/goods/${goods.goodsId}`" :alt="goods.goodsName" class="thumb-img" />
           </div>
           <p class="goods-name">{{ goods.goodsName }}</p>
           <div class="goods-price">
@@ -93,7 +93,7 @@
         <div v-for="goods in hotGoods" :key="goods.goodsId" class="goods-card"
           @click="$router.push(`/goods/detail/${goods.goodsId}`)">
           <div class="goods-thumb">
-            <img :src="goods.goodsThumb || `/api/images/goods/${goods.goodsId}`" :alt="goods.goodsName" class="thumb-img" />
+            <img :src="imgUrl(goods.goodsThumb) || `/api/images/goods/${goods.goodsId}`" :alt="goods.goodsName" class="thumb-img" />
           </div>
           <p class="goods-name">{{ goods.goodsName }}</p>
           <div class="goods-price">
@@ -115,6 +115,7 @@ import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import Header from '@/components/Header.vue'
 import { getHomeData } from '@/api/goods'
+import { imgUrl } from '@/utils/img'
 
 const router = useRouter()
 

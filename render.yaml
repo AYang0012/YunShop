@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: yunshop
+    runtime: java
+    buildCommand: cd frontend && npm install && npm run build && cp -r dist ../backend/src/main/resources/static/frontend && cd ../backend && mvn clean package -DskipTests
+    startCommand: java -jar backend/target/yunshop-1.0.0.jar
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
