@@ -12,6 +12,7 @@
     python run_tests.py p1           # 只运行 P1 级别用例
 """
 
+import os
 import subprocess
 import sys
 
@@ -36,7 +37,7 @@ def main():
         f"--alluredir=reports/allure-results --clean-alluredir"
     )
     print(f">>> 运行命令: {cmd}")
-    subprocess.run(cmd, shell=True, cwd="G:/TestProject/tests")
+    subprocess.run(cmd, shell=True, cwd=os.path.dirname(os.path.abspath(__file__)))
 
 
 if __name__ == "__main__":

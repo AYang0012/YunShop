@@ -12,9 +12,9 @@ API_URL = "http://localhost:8080/api"
 # 浏览器配置
 BROWSER = "chrome"
 HEADLESS = False
-CHROMEDRIVER_PATH = r"G:\Python3,13\chromedriver.exe"   # 本地 Chrome 驱动
-GECKODRIVER_PATH = r"G:\Python3,13\geckodriver.exe"     # 本地 Firefox 驱动
-EDGEDRIVER_PATH = r"G:\Python3,13\msedgedriver.exe"     # 本地 Edge 驱动
+CHROMEDRIVER_PATH = ""   # 留空则自动通过 webdriver-manager 下载
+GECKODRIVER_PATH = ""    # 留空则自动通过 webdriver-manager 下载
+EDGEDRIVER_PATH = ""     # 留空则自动通过 webdriver-manager 下载
 
 # 超时时间（秒）
 IMPLICIT_WAIT = 10

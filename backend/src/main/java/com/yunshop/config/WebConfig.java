@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Value("${upload.path:./backend/src/main/resources/static/upload/}")
+    @Value("${upload.path:./src/main/resources/static/upload/}")
     private String uploadPath;
 
     /**

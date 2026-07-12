@@ -45,13 +45,13 @@ Start-Service MySQL80
 mysql -u root -p123456
 
 # 在 MySQL shell 中执行：
-source G:/TestProject/sql/schema.sql;
-source G:/TestProject/sql/data.sql;
+source sql/schema.sql;
+source sql/data.sql;
 exit;
 
 # 方式二：管道导入
-mysql -u root -p123456 < G:/TestProject/sql/schema.sql
-mysql -u root -p123456 < G:/TestProject/sql/data.sql
+mysql -u root -p123456 < sql/schema.sql
+mysql -u root -p123456 < sql/data.sql
 ```
 
 > **注意**: 如果 `source` 命令遇到编码问题报 "Data too long"，请改用下面的直接插入方式。
@@ -96,7 +96,7 @@ INSERT INTO navigation (id, name, url, sort_order, is_show, position) VALUES
 
 # 插入商品分类（完整三级分类见 sql/data.sql）
 # 插入品牌、商品、广告、配置等...
-# 详细脚本参见 G:/TestProject/sql/data.sql
+# 详细脚本参见 sql/data.sql
 ```
 
 ### 2.4 验证数据库
@@ -126,7 +126,7 @@ SELECT * FROM admin;
 
 ### 3.1 配置文件
 
-确认 `G:\TestProject\backend\src\main\resources\application.yml` 中的数据库密码正确：
+确认 `backend/src/main/resources/application.yml` 中的数据库密码正确：
 
 ```yaml
 spring:
@@ -139,7 +139,7 @@ spring:
 ### 3.2 编译
 
 ```bash
-cd G:\TestProject\backend
+cd backend
 mvn clean compile
 ```
 
@@ -147,7 +147,7 @@ mvn clean compile
 
 ```bash
 # 开发模式启动（终端前台运行）
-cd G:\TestProject\backend
+cd backend
 mvn spring-boot:run
 
 # 或打包后运行
@@ -186,14 +186,14 @@ curl -X POST http://localhost:8080/api/admin/login \
 ### 4.1 安装依赖
 
 ```bash
-cd G:\TestProject\frontend
+cd frontend
 npm install
 ```
 
 ### 4.2 开发模式启动
 
 ```bash
-cd G:\TestProject\frontend
+cd frontend
 npm run dev
 ```
 
@@ -204,7 +204,7 @@ npm run dev
 ### 4.3 生产构建
 
 ```bash
-cd G:\TestProject\frontend
+cd frontend
 npm run build
 # 产物在 dist/ 目录下
 ```
@@ -284,7 +284,6 @@ taskkill /F /PID <进程ID>
 ## 七、目录结构总览
 
 ```
-G:\TestProject\
 ├── backend/                         ← SpringBoot 后端
 │   ├── pom.xml                      ← Maven 依赖
 │   └── src/main/java/com/yunshop/
@@ -313,9 +312,7 @@ G:\TestProject\
 ├── sql/
 │   ├── schema.sql                   ← 建表语句（18张表）
 │   └── data.sql                     ← 测试数据
-├── tests/                           ← pytest 自动化测试（待补充）
-├── scripts/                         ← 工具脚本
-│   └── download_images.py           ← 商品图片下载脚本
+├── tests/                           ← pytest 自动化测试
 └── docs/
     ├── YUNshop_需求文档.md           ← 需求文档
     ├── api.md                       ← API 接口文档（本文档）

@@ -6,6 +6,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 云集优选（YunShop）B2C 电商平台 — SpringBoot + Vue 3 重构版，唯一用途是**自动化测试练习**。
 
+## 环境要求
+
+| 组件 | 版本 |
+|------|------|
+| JDK | 17+ |
+| Maven | 3.6+ |
+| Node.js | 18+ |
+| MySQL | 8.0+（需运行中） |
+| Python | 3.8+（运行测试用） |
+
 ## 技术栈
 
 | 层级 | 技术 |
@@ -23,7 +33,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 目录结构
 
 ```
-G:\TestProject\
 ├── CLAUDE.md                        ← 项目定义文件（本文件）
 ├── backend/                         ← SpringBoot 后端（端口 8080）
 │   ├── pom.xml                      ← Maven 依赖
@@ -63,13 +72,13 @@ G:\TestProject\
 │   ├── cases/front/ + admin/        ← 10个测试文件（前台7 + 后台2 + conftest）
 │   ├── data/                        ← 动态数据生成器 + JSON 参数化数据
 │   └── reports/                     ← Allure 结果 + 日志 + 截图
-├── scripts/                         ← 工具脚本
-│   ├── download_images.py           ← 商品图片下载
-│   └── generate_svg_images.py       ← SVG 占位图生成
 └── docs/
     ├── YUNshop_需求文档.md           ← 完整功能需求
-    ├── api.md                       ← REST API 接口文档（含请求/响应示例）
-    └── deployment.md                ← 全链路部署文档（环境/数据库/前后端启动）
+    ├── api.md                       ← REST API 接口文档（47个接口，含请求/响应示例）
+    ├── deployment.md                ← 全链路部署文档（环境/数据库/前后端启动）
+    ├── test-framework-tutorial.md   ← 测试框架教程文档
+    ├── 框架代码逻辑详解.md           ← 测试框架代码逻辑说明
+    └── 自动化测试框架文档.md         ← 测试框架完整文档
 ```
 
 ## 核心数据库表（18张，无前缀）
@@ -104,8 +113,8 @@ promotion        -- 促销活动
 
 ```bash
 # 导入建表和数据（在 MySQL shell 中或管道）
-mysql -u root -p123456 < G:/TestProject/sql/schema.sql
-mysql -u root -p123456 < G:/TestProject/sql/data.sql
+mysql -u root -p123456 < sql/schema.sql
+mysql -u root -p123456 < sql/data.sql
 
 # 验证
 mysql -u root -p123456 yunshop -e "SELECT COUNT(*) FROM goods; SELECT COUNT(*) FROM goods_category;"
@@ -114,7 +123,7 @@ mysql -u root -p123456 yunshop -e "SELECT COUNT(*) FROM goods; SELECT COUNT(*) F
 ### 后端
 
 ```bash
-cd G:\TestProject\backend
+cd backend
 
 # 编译
 mvn clean compile
@@ -134,7 +143,7 @@ curl -X POST http://localhost:8080/api/admin/login -H "Content-Type: application
 ### 前端
 
 ```bash
-cd G:\TestProject\frontend
+cd frontend
 
 # 首次运行需安装依赖
 npm install
@@ -149,7 +158,7 @@ npm run build
 ### 测试
 
 ```bash
-cd G:\TestProject\tests
+cd tests
 
 # 安装依赖（首次）
 pip install pytest selenium allure-pytest webdriver-manager faker

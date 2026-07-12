@@ -155,12 +155,13 @@ YunShop/
 │   ├── cases/                        # 测试用例层（10 个文件）
 │   ├── data/                         # 动态数据生成 + JSON 参数化
 │   └── reports/                      # Allure 结果 + 日志 + 截图
-├── docs/                             # 需求文档 + API 文档 + 部署文档
-│   ├── YUNshop_需求文档.md
+├── docs/                             # 项目文档
+│   ├── YUNshop_需求文档.md           # 完整功能需求
 │   ├── api.md                        # 47 个 REST API
 │   ├── deployment.md                 # 全链路部署文档
-│   └── test-framework-tutorial.md    # 测试框架教程
-└── scripts/                          # 工具脚本（图片下载/SVG生成）
+│   ├── test-framework-tutorial.md    # 测试框架教程
+│   ├── 框架代码逻辑详解.md           # 框架代码逻辑说明
+│   └── 自动化测试框架文档.md         # 测试框架完整文档
 ```
 
 ## 📡 API 文档

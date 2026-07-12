@@ -102,39 +102,39 @@ INSERT INTO `brand` (`id`, `name`, `description`, `sort_order`, `is_hot`) VALUES
 -- 示例商品
 -- ===============================================
 INSERT INTO `goods` (`goods_id`, `goods_sn`, `goods_name`, `cat_id`, `brand_id`, `shop_price`, `market_price`, `store_count`, `sales_sum`, `keywords`, `goods_content`, `goods_thumb`, `is_on_sale`, `is_hot`, `is_recommend`) VALUES
-(1, 'SN20260601001', '华为Mate 60 Pro 智能手机 5G全网通', 111, 1, 6999.00, 7999.00, 100, 256, '华为,Mate60,5G', '<p>华为Mate 60 Pro 旗舰手机</p>', '/static/images/default-goods.png', 1, 1, 1),
-(2, 'SN20260601002', 'iPhone 15 Pro Max 256GB', 111, 2, 8999.00, 9999.00, 80, 189, 'iPhone,苹果', '<p>iPhone 15 Pro Max</p>', '/static/images/default-goods.png', 1, 1, 1),
-(3, 'SN20260601003', '小米14 Ultra 影像旗舰', 111, 3, 5999.00, 6499.00, 150, 312, '小米,14,Ultra', '<p>小米14 Ultra 拍照旗舰</p>', '/static/images/default-goods.png', 1, 1, 1),
-(4, 'SN20260601004', '联想ThinkPad X1 Carbon 商务本', 21, 4, 9999.00, 12999.00, 50, 89, 'ThinkPad,联想,商务', '<p>ThinkPad X1 Carbon 轻薄商务笔记本</p>', '/static/images/default-goods.png', 1, 1, 1),
-(5, 'SN20260601005', 'Apple MacBook Pro 14英寸', 21, 2, 14999.00, 16999.00, 40, 67, 'MacBook,苹果', '<p>MacBook Pro M3芯片</p>', '/static/images/default-goods.png', 1, 1, 1),
-(6, 'SN20260601006', '格力空调 1.5匹 变频冷暖', 31, 5, 3299.00, 3999.00, 200, 432, '格力,空调,变频', '<p>格力1.5匹变频空调</p>', '/static/images/default-goods.png', 1, 1, 1),
-(7, 'SN20260601007', '海尔双门冰箱 500L 风冷无霜', 33, 6, 4599.00, 5299.00, 60, 123, '海尔,冰箱', '<p>海尔大容量冰箱</p>', '/static/images/default-goods.png', 1, 1, 0),
-(8, 'SN20260601008', '小米平板6 Pro 11英寸', 121, 3, 2499.00, 2799.00, 120, 198, '小米,平板', '<p>小米平板6 Pro</p>', '/static/images/default-goods.png', 1, 0, 1),
-(9, 'SN20260601009', '华为MatePad Pro 12.6英寸', 121, 1, 4299.00, 4999.00, 70, 145, '华为,平板', '<p>华为MatePad Pro旗舰平板</p>', '/static/images/default-goods.png', 1, 0, 1),
-(10, 'SN20260601010', '65W氮化镓充电器 多口快充', 131, 3, 89.00, 129.00, 500, 1024, '充电器,快充', '<p>65W高速充电器</p>', '/static/images/default-goods.png', 1, 0, 1);
+(1, 'SN20260601001', '华为Mate 60 Pro 智能手机 5G全网通', 111, 1, 6999.00, 7999.00, 100, 256, '华为,Mate60,5G', '<p>华为Mate 60 Pro 旗舰手机</p>', '/upload/goods/1.jpg', 1, 1, 1),
+(2, 'SN20260601002', 'iPhone 15 Pro Max 256GB', 111, 2, 8999.00, 9999.00, 80, 189, 'iPhone,苹果', '<p>iPhone 15 Pro Max</p>', '/upload/goods/2.jpg', 1, 1, 1),
+(3, 'SN20260601003', '小米14 Ultra 影像旗舰', 111, 3, 5999.00, 6499.00, 150, 312, '小米,14,Ultra', '<p>小米14 Ultra 拍照旗舰</p>', '/upload/goods/3.jpg', 1, 1, 1),
+(4, 'SN20260601004', '联想ThinkPad X1 Carbon 商务本', 21, 4, 9999.00, 12999.00, 50, 89, 'ThinkPad,联想,商务', '<p>ThinkPad X1 Carbon 轻薄商务笔记本</p>', '/upload/goods/4.jpg', 1, 1, 1),
+(5, 'SN20260601005', 'Apple MacBook Pro 14英寸', 21, 2, 14999.00, 16999.00, 40, 67, 'MacBook,苹果', '<p>MacBook Pro M3芯片</p>', '/upload/goods/5.jpg', 1, 1, 1),
+(6, 'SN20260601006', '格力空调 1.5匹 变频冷暖', 31, 5, 3299.00, 3999.00, 200, 432, '格力,空调,变频', '<p>格力1.5匹变频空调</p>', '/upload/goods/6.jpg', 1, 1, 1),
+(7, 'SN20260601007', '海尔双门冰箱 500L 风冷无霜', 33, 6, 4599.00, 5299.00, 60, 123, '海尔,冰箱', '<p>海尔大容量冰箱</p>', '/upload/goods/7.jpg', 1, 1, 0),
+(8, 'SN20260601008', '小米平板6 Pro 11英寸', 121, 3, 2499.00, 2799.00, 120, 198, '小米,平板', '<p>小米平板6 Pro</p>', '/upload/goods/8.jpg', 1, 0, 1),
+(9, 'SN20260601009', '华为MatePad Pro 12.6英寸', 121, 1, 4299.00, 4999.00, 70, 145, '华为,平板', '<p>华为MatePad Pro旗舰平板</p>', '/upload/goods/9.jpg', 1, 0, 1),
+(10, 'SN20260601010', '65W氮化镓充电器 多口快充', 131, 3, 89.00, 129.00, 500, 1024, '充电器,快充', '<p>65W高速充电器</p>', '/upload/goods/10.jpg', 1, 0, 1);
 
 -- ===============================================
 -- 商品图片（每个商品一张默认图）
 -- ===============================================
 INSERT INTO `goods_images` (`img_id`, `goods_id`, `image_url`, `sort_order`, `is_main`) VALUES
-(1, 1, '/static/images/default-goods.png', 10, 1),
-(2, 2, '/static/images/default-goods.png', 10, 1),
-(3, 3, '/static/images/default-goods.png', 10, 1),
-(4, 4, '/static/images/default-goods.png', 10, 1),
-(5, 5, '/static/images/default-goods.png', 10, 1),
-(6, 6, '/static/images/default-goods.png', 10, 1),
-(7, 7, '/static/images/default-goods.png', 10, 1),
-(8, 8, '/static/images/default-goods.png', 10, 1),
-(9, 9, '/static/images/default-goods.png', 10, 1),
-(10, 10, '/static/images/default-goods.png', 10, 1);
+(1, 1, '/upload/goods/1.jpg', 10, 1),
+(2, 2, '/upload/goods/2.jpg', 10, 1),
+(3, 3, '/upload/goods/3.jpg', 10, 1),
+(4, 4, '/upload/goods/4.jpg', 10, 1),
+(5, 5, '/upload/goods/5.jpg', 10, 1),
+(6, 6, '/upload/goods/6.jpg', 10, 1),
+(7, 7, '/upload/goods/7.jpg', 10, 1),
+(8, 8, '/upload/goods/8.jpg', 10, 1),
+(9, 9, '/upload/goods/9.jpg', 10, 1),
+(10, 10, '/upload/goods/10.jpg', 10, 1);
 
 -- ===============================================
 -- 广告数据（Banner）
 -- ===============================================
 INSERT INTO `ad` (`ad_id`, `ad_name`, `ad_image`, `ad_link`, `position_id`, `type`, `enabled`, `sort_order`) VALUES
-(1, '华为Mate60', '/static/images/default-banner.png', '/goods/detail/1', 1, 'banner', 1, 10),
-(2, 'iPhone15', '/static/images/default-banner.png', '/goods/detail/2', 1, 'banner', 1, 20),
-(3, '小米14', '/static/images/default-banner.png', '/goods/detail/3', 1, 'banner', 1, 30);
+(1, '华为Mate60', '/upload/goods/1.jpg', '/goods/detail/1', 1, 'banner', 1, 10),
+(2, 'iPhone15', '/upload/goods/2.jpg', '/goods/detail/2', 1, 'banner', 1, 20),
+(3, '小米14', '/upload/goods/3.jpg', '/goods/detail/3', 1, 'banner', 1, 30);
 
 -- ===============================================
 -- 系统配置
