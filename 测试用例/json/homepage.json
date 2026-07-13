@@ -1,0 +1,155 @@
+{
+  "module": "首页",
+  "testcases": [
+    {
+      "id": "TC_HOME_001",
+      "title": "首页正常加载（正向流程）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.前后端服务正常运行\n2.数据库有测试数据",
+      "steps": "1.在浏览器地址栏输入http://localhost:3000/\n2.回车访问",
+      "expected": "1.页面正常加载，无白屏\n2.显示顶部导航栏\n3.显示左侧分类菜单\n4.显示Banner轮播图\n5.显示商品楼层\n6.显示热门推荐",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_002",
+      "title": "导航栏显示前8条数据（数据验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.数据库navigation表有>=8条数据",
+      "steps": "1.查看顶部导航栏\n2.统计导航项数量",
+      "expected": "1.显示前8条导航项\n2.按sort_order字段排序\n3.导航名称和链接正确",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_003",
+      "title": "未登录状态导航栏显示（状态判断）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.用户未登录",
+      "steps": "1.访问首页\n2.查看导航栏右侧",
+      "expected": "1.显示「登录」链接\n2.显示「注册」链接\n3.不显示用户头像和昵称",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_004",
+      "title": "已登录状态导航栏显示（状态判断）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.用户已登录\n2.已上传头像",
+      "steps": "1.访问首页\n2.查看导航栏右侧",
+      "expected": "1.显示用户头像（圆形）\n2.显示用户昵称\n3.显示「安全退出」按钮\n4.不显示「登录」「注册」链接",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_005",
+      "title": "一级分类菜单显示6个（数据验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.数据库有6个一级分类",
+      "steps": "1.查看首页左侧分类菜单\n2.统计一级分类数量",
+      "expected": "1.显示6个一级分类\n2.分类名称正确\n3.显示对应图标",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_006",
+      "title": "悬停一级分类展开子分类（交互验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.分类菜单已显示",
+      "steps": "1.将鼠标悬停在「手机数码」分类上\n2.观察展开的子分类",
+      "expected": "1.一级分类背景变浅\n2.右侧展开子分类面板\n3.显示二级和三级分类\n4.分类层级关系正确",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_007",
+      "title": "点击分类跳转商品列表（链接验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.分类菜单已显示",
+      "steps": "1.点击「手机数码」分类",
+      "expected": "1.页面跳转到商品列表页\n2.URL包含catId参数\n3.列表仅显示该分类商品",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_008",
+      "title": "Banner轮播图自动播放（功能验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.数据库ad表有>=2条Banner数据",
+      "steps": "1.访问首页\n2.观察轮播图区域\n3.等待3秒",
+      "expected": "1.显示第一张Banner\n2.3秒后自动切换到下一张\n3.切换动画流畅",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_009",
+      "title": "Banner鼠标悬停暂停（交互验证）",
+      "module": "首页",
+      "priority": "P1",
+      "precondition": "1.轮播图正在自动播放",
+      "steps": "1.将鼠标悬停在轮播图上\n2.等待6秒\n3.移开鼠标",
+      "expected": "1.悬停期间轮播暂停，不自动切换\n2.移开鼠标后恢复自动播放",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_010",
+      "title": "Banner左右箭头切换（交互验证）",
+      "module": "首页",
+      "priority": "P1",
+      "precondition": "1.轮播图已显示",
+      "steps": "1.点击右箭头\n2.观察切换效果\n3.点击左箭头",
+      "expected": "1.点击右箭头切换到下一张\n2.点击左箭头切换到上一张\n3.切换动画流畅",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_011",
+      "title": "Banner指示器点击跳转（交互验证）",
+      "module": "首页",
+      "priority": "P1",
+      "precondition": "1.轮播图已显示\n2.有多个指示器圆点",
+      "steps": "1.点击第3个指示器圆点",
+      "expected": "1.切换到第3张Banner\n2.第3个圆点高亮显示",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_012",
+      "title": "Banner点击跳转商品详情（链接验证）",
+      "module": "首页",
+      "priority": "P1",
+      "precondition": "1.Banner已配置adLink",
+      "steps": "1.点击某张Banner图片",
+      "expected": "1.页面跳转到对应商品详情页或分类页\n2.URL与adLink配置一致",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_013",
+      "title": "商品楼层显示（数据验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.分类is_hot=1的有数据\n2.该分类下有在售商品",
+      "steps": "1.滚动到商品楼层区域\n2.查看楼层内容",
+      "expected": "1.显示热门分类楼层\n2.每层显示分类名称\n3.显示二级分类链接\n4.每层显示6个商品\n5.有「更多」按钮",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_014",
+      "title": "楼层「更多」按钮跳转（链接验证）",
+      "module": "首页",
+      "priority": "P1",
+      "precondition": "1.商品楼层已显示",
+      "steps": "1.点击某楼层的「更多」按钮",
+      "expected": "1.跳转到该分类的商品列表页\n2.筛选条件为该分类",
+      "actual": ""
+    },
+    {
+      "id": "TC_HOME_015",
+      "title": "热门推荐显示（数据验证）",
+      "module": "首页",
+      "priority": "P0",
+      "precondition": "1.有is_recommend=1的商品",
+      "steps": "1.滚动到热门推荐区域\n2.查看推荐商品",
+      "expected": "1.显示推荐商品\n2.数量为4个\n3.显示商品图片、名称、价格",
+      "actual": ""
+    }
+  ]
+}

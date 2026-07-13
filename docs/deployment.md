@@ -1,8 +1,8 @@
 # 云集优选 B2C 电商平台 — 全链路部署文档
 
-> **最后更新**: 2026-06-21
+> **最后更新**: 2026-07-13
 >
-> **适用环境**: Windows 10/11 Pro x64
+> **适用环境**: Windows 10/11 Pro x64（其他系统需调整路径）
 
 ---
 
@@ -16,13 +16,13 @@
 | Node.js | 16 | 22.16.0 | `node -version` |
 | npm | 8 | 10.9.2 | `npm -version` |
 
-### 1.1 安装路径（本项目）
+### 1.1 安装路径（示例）
 
 | 工具 | 路径 |
 |------|------|
-| JDK | `G:\jdk_17` |
-| Maven | `G:\develop\apache-maven-3.9.13` |
-| MySQL | `C:\Program Files\MySQL\MySQL Server 8.0\` |
+| JDK | 任意路径（需配置 JAVA_HOME 环境变量） |
+| Maven | 任意路径（需配置 MAVEN_HOME 并添加到 PATH） |
+| MySQL | 默认安装路径或自定义路径 |
 
 ---
 
@@ -47,11 +47,13 @@ mysql -u root -p123456
 # 在 MySQL shell 中执行：
 source sql/schema.sql;
 source sql/data.sql;
+source sql/new_goods.sql;   # 可选：导入 100 个扩展商品
 exit;
 
 # 方式二：管道导入
 mysql -u root -p123456 < sql/schema.sql
 mysql -u root -p123456 < sql/data.sql
+mysql -u root -p123456 < sql/new_goods.sql   # 可选
 ```
 
 > **注意**: 如果 `source` 命令遇到编码问题报 "Data too long"，请改用下面的直接插入方式。

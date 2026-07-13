@@ -1,7 +1,7 @@
 # 云集优选B2C电商平台— 完整需求文档
 
 > **本文档为项目目标需求。当前实现状态见下方标注。**  
-> 最后更新：2026-06-23（第二次修订）
+> 最后更新：2026-07-13（第三次修订）
 
 ## 实现状态概览
 
@@ -18,7 +18,7 @@
 | 订单流程 | ✅ 已实现 | 提交 → 支付 → 发货 → 确认收货；取消订单 |
 | 退货/退款 | ❌ 未实现 | `ORDER_RETURNING`/`ORDER_REFUNDED` 常量已定义，但无业务逻辑 |
 | 收货地址 | ✅ 已实现 | 增删改查、设置默认，最多20个 |
-| 文件上传 | ✅ 已实现 | `POST /api/upload/avatar` 头像上传（.png/.jpg/.jpeg，最大5MB），上传目录映射 `/upload/**` |
+| 文件上传 | ✅ 已实现 | `POST /api/upload/avatar` 头像上传（.png/.jpg/.jpeg/.webp，最大5MB），上传目录映射 `/upload/**` |
 | 用户中心 | ⚠️ 部分 | 已实现（高质感 UI 重设）：我的订单、收货地址、个人信息（含头像上传）、修改密码（含密码强度指示）；未实现：我的收藏、我的评价、优惠券、我的积分 |
 | 后台仪表盘 | ✅ 已实现 | 占位页面 |
 | 后台商品管理 | ✅ 已实现 | 增删改查、上下架 |
@@ -47,7 +47,8 @@
 - 显示 **前8条** 导航数据
 - 按排序字段逆序展示
 - 未登录：头部显示「登录」「注册」链接
-- 已登录：显示用户名 +「安全退出」
+- 已登录：显示用户头像（圆形）+ 用户名 +「安全退出」
+- 用户头像：已上传头像显示图片，未上传显示昵称首字母
 
 ### 2.2 登录功能
 
@@ -70,7 +71,8 @@
 | 密码规则 | 6-16位，大小写英文 + 数字 + 符号（至少两种组合） |
 | 确认密码 | 必须与密码一致 |
 | 推荐人手机 | 非必填 |
-| 协议勾选 | 必须勾选「我已阅读并同意」协议 |
+| 头像上传 | 选填，支持 .jpg/.png/.webp 格式，最大 5MB，圆形预览 |
+| 协议勾选 | 必须勾选「我已阅读并同意」协议，点击可查看协议内容 |
 | 注册成功 | 跳转首页，自动登录状态，后台会员总数+1 |
 
 ### 2.4 首页
@@ -198,7 +200,7 @@ PENDING（待付款）
 |------|------|
 | 我的订单 | 查看所有订单（待付款/待发货/待收货/已完成/已取消） |
 | 收货地址 | 新增/编辑/删除/设置默认地址（最多20个） |
-| 个人信息 | 修改头像、昵称、手机号、邮箱 |
+| 个人信息 | 修改头像（支持 jpg/png/webp，圆形展示）、昵称、手机号、邮箱 |
 | 修改密码 | 输入原密码 + 新密码 + 确认密码 |
 | 我的收藏 | 查看/取消收藏的商品 |
 | 我的评价 | 查看/追评商品评价 |
@@ -268,10 +270,10 @@ PENDING（待付款）
 
 | 表名 | 说明 | 关键字段 |
 |------|------|----------|
-| `users` | 用户表 | user_id, mobile, email, password, nickname, level, reg_time, last_login |
+| `users` | 用户表 | user_id, mobile, email, password, nickname, avatar, level, reg_time, last_login |
 | `goods` | 商品表 | goods_id, goods_name, cat_id, brand_id, shop_price, market_price, store_count, is_on_sale, is_hot, is_recommend, sales_sum |
 | `goods_category` | 商品分类表 | id, name, parent_id, level, sort_order, is_show, is_hot |
-| `goods_images` | 商品图片表 | img_id, goods_id, image_url |
+| `goods_images` | 商品图片表 | img_id, goods_id, image_url, sort_order, is_main |
 | `goods_attr` | 商品属性/SKU表 | goods_attr_id, goods_id, attr_name, attr_value, attr_price, store_count |
 | `cart` | 购物车表 | id, user_id, goods_id, goods_num, goods_price, selected |
 | `order` | 订单表 | order_id, order_sn, user_id, order_status, pay_status, shipping_status, order_amount, total_amount, pay_name, add_time |

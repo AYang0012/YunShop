@@ -21,6 +21,8 @@ public class RegisterDto {
 
     private String referrerMobile;  // 推荐人手机（选填）
 
+    private String avatar;          // 头像URL（选填）
+
     private boolean agreeProtocol;  // 是否同意协议
 
     public String getAccount() { return account; }
@@ -33,6 +35,8 @@ public class RegisterDto {
     public void setConfirmPassword(String confirmPassword) { this.confirmPassword = confirmPassword; }
     public String getReferrerMobile() { return referrerMobile; }
     public void setReferrerMobile(String referrerMobile) { this.referrerMobile = referrerMobile; }
+    public String getAvatar() { return avatar; }
+    public void setAvatar(String avatar) { this.avatar = avatar; }
     public boolean isAgreeProtocol() { return agreeProtocol; }
     public void setAgreeProtocol(boolean agreeProtocol) { this.agreeProtocol = agreeProtocol; }
 }

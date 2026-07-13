@@ -1,4 +1,4 @@
-#                       云集优选 YunShop
+#                       		    云集优选 YunShop
 
 <p align="center">
   <b>B2C 电商平台 — SpringBoot 3 + Vue 3 全栈项目，专为自动化测试练习设计</b>
@@ -36,7 +36,7 @@
 | 🔍 商品 | 分类筛选、关键词搜索、价格/销量/新品排序、分页浏览 |
 | 🛒 购物车 | 加入购物车、数量修改、全选/批量删除、去结算 |
 | 📦 订单 | 提交订单 → 支付 → 发货 → 确认收货，完整状态流转 |
-| 👤 用户 | 注册/登录、头像上传、个人信息、订单管理、密码修改、收货地址 |
+| 👤 用户 | 注册/登录、头像上传（jpg/png/webp）、个人信息、订单管理、密码修改、收货地址 |
 | 🛡️ 后台 | 仪表盘、商品增删改查/上下架、分类/订单/会员管理（部分为占位页） |
 | 🧪 测试 | **67 条自动化用例**，Page Object 模式 + Allure 可视化报告 |
 
@@ -71,6 +71,7 @@
 ```bash
 mysql -u root -p123456 < sql/schema.sql
 mysql -u root -p123456 < sql/data.sql
+mysql -u root -p123456 < sql/new_goods.sql   # 可选：导入 100 个扩展商品
 ```
 
 验证：
@@ -144,6 +145,9 @@ YunShop/
 │       ├── components/               # 共享组件（Header.vue）
 │       └── views/front/ + admin/     # 页面组件（前台 11 + 后台 7）
 ├── sql/                              # 建表 + 测试数据（18 张表）
+│   ├── schema.sql                    # 建表语句
+│   ├── data.sql                      # 基础测试数据
+│   └── new_goods.sql                 # 扩展商品数据（100 个）
 ├── tests/                            # pytest + Selenium + Allure（67 条用例）
 │   ├── conftest.py / pytest.ini / run_tests.py
 │   ├── config/                       # 全局配置
@@ -166,7 +170,7 @@ YunShop/
 
 ## 📡 API 文档
 
-完整接口文档见 [docs/api.md](docs/api.md)，包含 47 个 REST API 的请求/响应示例。
+完整接口文档见 [docs/api.md](docs/api.md)，包含 46 个 REST API 的请求/响应示例。
 
 **统一响应格式**：`{ "code": 200, "msg": "success", "data": { ... } }`
 

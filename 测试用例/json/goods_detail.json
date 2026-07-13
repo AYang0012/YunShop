@@ -1,0 +1,105 @@
+{
+  "module": "商品详情",
+  "testcases": [
+    {
+      "id": "TC_GDET_001",
+      "title": "商品详情页正常加载（正向流程）",
+      "module": "商品详情",
+      "priority": "P0",
+      "precondition": "1.商品ID=1存在且已上架",
+      "steps": "1.访问商品详情页 /goods/detail/1",
+      "expected": "1.页面正常加载\n2.显示商品主图\n3.显示商品名称\n4.显示原价和促销价\n5.显示销量和库存\n6.显示「加入购物车」按钮",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_002",
+      "title": "商品图片轮播切换（交互验证）",
+      "module": "商品详情",
+      "priority": "P1",
+      "precondition": "1.商品有多张图片",
+      "steps": "1.访问商品详情页\n2.点击第2张缩略图\n3.点击左右箭头切换",
+      "expected": "1.主图切换为第2张\n2.缩略图高亮切换\n3.点击箭头可切换上下张",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_003",
+      "title": "规格选择-颜色（SKU选择）",
+      "module": "商品详情",
+      "priority": "P0",
+      "precondition": "1.商品有颜色规格（如雅川青、曜金黑）",
+      "steps": "1.访问商品详情页\n2.点击「雅川青」规格",
+      "expected": "1.「雅川青」选中高亮\n2.其他规格取消选中\n3.价格和库存更新为该规格值",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_004",
+      "title": "修改购买数量-点击增加（数量操作）",
+      "module": "商品详情",
+      "priority": "P0",
+      "precondition": "1.商品详情页已打开\n2.当前数量为1",
+      "steps": "1.点击「+」按钮",
+      "expected": "1.数量变为2\n2.不超过库存数量",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_005",
+      "title": "修改购买数量-点击减少（数量操作）",
+      "module": "商品详情",
+      "priority": "P0",
+      "precondition": "1.当前数量为2",
+      "steps": "1.点击「-」按钮",
+      "expected": "1.数量变为1\n2.不低于1",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_006",
+      "title": "手动输入数量-超出库存自动修正（边界值）",
+      "module": "商品详情",
+      "priority": "P1",
+      "precondition": "1.库存为50",
+      "steps": "1.清空数量框\n2.输入100（超出库存）\n3.点击其他区域触发校验",
+      "expected": "1.数量自动修正为50（库存上限）\n2.显示修正提示或自动处理",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_007",
+      "title": "加入购物车成功-已登录（正向流程）",
+      "module": "商品详情",
+      "priority": "P0",
+      "precondition": "1.用户已登录\n2.商品已上架\n3.库存>0",
+      "steps": "1.选择规格\n2.设置数量为2\n3.点击「加入购物车」按钮",
+      "expected": "1.提示「加入购物车成功」\n2.导航栏购物车数量+1\n3.购物车中包含该商品",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_008",
+      "title": "加入购物车-未登录跳转（权限校验）",
+      "module": "商品详情",
+      "priority": "P0",
+      "precondition": "1.用户未登录",
+      "steps": "1.选择规格和数量\n2.点击「加入购物车」按钮",
+      "expected": "1.页面跳转到登录页 /login\n2.提示需要登录",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_009",
+      "title": "立即购买跳转订单确认（功能验证）",
+      "module": "商品详情",
+      "priority": "P1",
+      "precondition": "1.用户已登录\n2.商品已上架",
+      "steps": "1.选择规格和数量\n2.点击「立即购买」按钮",
+      "expected": "1.跳转到订单确认页 /order/confirm\n2.包含该商品信息\n3.显示正确的数量和价格",
+      "actual": ""
+    },
+    {
+      "id": "TC_GDET_010",
+      "title": "商品详情内容显示（内容验证）",
+      "module": "商品详情",
+      "priority": "P1",
+      "precondition": "1.商品有详情HTML内容",
+      "steps": "1.滚动到商品详情区域\n2.查看图文详情",
+      "expected": "1.显示商品详情HTML内容\n2.图片正常加载\n3.排版正常",
+      "actual": ""
+    }
+  ]
+}

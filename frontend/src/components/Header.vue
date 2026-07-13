@@ -54,7 +54,13 @@
       <!-- 用户区 + 购物车 -->
       <div class="header-actions">
         <template v-if="user">
-          <router-link to="/user" class="user-name">你好，{{ user.nickname }}</router-link>
+          <router-link to="/user" class="user-info">
+            <el-avatar v-if="user.avatar" :size="32" :src="user.avatar" class="user-avatar" />
+            <el-avatar v-else :size="32" class="user-avatar-default">
+              {{ user.nickname ? user.nickname.charAt(0).toUpperCase() : 'U' }}
+            </el-avatar>
+            <span class="user-name">{{ user.nickname }}</span>
+          </router-link>
           <el-button text @click="handleLogout">安全退出</el-button>
         </template>
         <template v-else>
@@ -334,8 +340,19 @@ onMounted(async () => {
 
 /* ====== 用户区 ====== */
 .header-actions { display: flex; align-items: center; gap: 6px; font-size: 13px; flex-shrink: 1; min-width: 0; }
-.user-name { color: var(--text-secondary); white-space: nowrap; text-decoration: none; transition: color 0.2s; cursor: pointer; }
-.user-name:hover { color: var(--primary); }
+.user-info {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; cursor: pointer; padding: 4px 8px;
+  border-radius: 8px; transition: all 0.25s;
+}
+.user-info:hover { background: var(--primary-light); }
+.user-avatar { border: 2px solid #E8F4F7; }
+.user-avatar-default {
+  background: var(--primary); color: #fff;
+  font-size: 14px; font-weight: 600;
+}
+.user-name { color: var(--text-secondary); white-space: nowrap; transition: color 0.2s; }
+.user-info:hover .user-name { color: var(--primary); }
 
 .link {
   color: var(--text-secondary);

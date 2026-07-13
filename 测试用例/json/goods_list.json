@@ -1,0 +1,115 @@
+{
+  "module": "商品列表",
+  "testcases": [
+    {
+      "id": "TC_GLIST_001",
+      "title": "商品列表页正常加载（正向流程）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.数据库有在售商品",
+      "steps": "1.访问商品列表页 /goods/list",
+      "expected": "1.页面正常加载\n2.显示商品列表\n3.每页默认12条\n4.显示商品缩略图、名称、价格、销量",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_002",
+      "title": "按分类筛选商品（筛选功能）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.有多个分类的商品",
+      "steps": "1.访问商品列表页\n2.选择「手机数码」分类\n3.查看筛选结果",
+      "expected": "1.仅显示手机数码分类商品\n2.其他分类商品不显示\n3.分页正确更新",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_003",
+      "title": "按价格升序排序（排序功能）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.有多个不同价格的商品",
+      "steps": "1.访问商品列表页\n2.点击「价格」排序\n3.选择升序",
+      "expected": "1.商品按价格从低到高排列\n2.第一个商品价格最低\n3.排序图标方向正确",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_004",
+      "title": "按价格降序排序（排序功能）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.有多个不同价格的商品",
+      "steps": "1.访问商品列表页\n2.点击「价格」排序\n3.选择降序",
+      "expected": "1.商品按价格从高到低排列\n2.第一个商品价格最高",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_005",
+      "title": "按销量排序（排序功能）",
+      "module": "商品列表",
+      "priority": "P1",
+      "precondition": "1.有不同销量的商品",
+      "steps": "1.访问商品列表页\n2.点击「销量」排序",
+      "expected": "1.商品按销量从高到低排列\n2.热销商品排在前面",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_006",
+      "title": "按新品排序（排序功能）",
+      "module": "商品列表",
+      "priority": "P1",
+      "precondition": "1.有不同上架时间的商品",
+      "steps": "1.访问商品列表页\n2.点击「新品」排序",
+      "expected": "1.商品按上架时间从新到旧排列\n2.最新上架商品排在前面",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_007",
+      "title": "关键词搜索成功（搜索功能）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.有名称包含「华为」的商品",
+      "steps": "1.在搜索框输入「华为」\n2.点击搜索按钮或回车",
+      "expected": "1.显示包含「华为」的商品\n2.搜索关键词高亮\n3.无结果时显示空状态提示",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_008",
+      "title": "搜索无结果（边界场景）",
+      "module": "商品列表",
+      "priority": "P1",
+      "precondition": "1.无名称包含「xyzabc」的商品",
+      "steps": "1.在搜索框输入「xyzabc」\n2.点击搜索",
+      "expected": "1.显示空状态页面\n2.提示「暂无商品」或类似文案",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_009",
+      "title": "分页功能-翻到第2页（分页验证）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.商品总数>12",
+      "steps": "1.访问商品列表页\n2.点击第2页页码",
+      "expected": "1.显示第2页商品\n2.商品与第1页不同\n3.第2页码高亮\n4.URL包含page=2",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_010",
+      "title": "切换每页显示条数（分页验证）",
+      "module": "商品列表",
+      "priority": "P1",
+      "precondition": "1.商品总数>12",
+      "steps": "1.访问商品列表页\n2.切换为每页24条",
+      "expected": "1.页面显示24条商品\n2.总页数减少\n3.分页器更新",
+      "actual": ""
+    },
+    {
+      "id": "TC_GLIST_011",
+      "title": "点击商品跳转详情页（链接验证）",
+      "module": "商品列表",
+      "priority": "P0",
+      "precondition": "1.商品列表有数据",
+      "steps": "1.点击某商品的图片或名称",
+      "expected": "1.跳转到商品详情页\n2.URL为/goods/detail/{goodsId}\n3.显示该商品详细信息",
+      "actual": ""
+    }
+  ]
+}

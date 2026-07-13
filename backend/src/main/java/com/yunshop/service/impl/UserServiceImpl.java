@@ -70,6 +70,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setPassword(passwordEncoder.encode(registerDto.getPassword()));
         user.setNickname(account); // 默认昵称
+        user.setAvatar(registerDto.getAvatar()); // 设置头像
         user.setLevel(0);
         user.setPoints(0);
         user.setStatus(1);

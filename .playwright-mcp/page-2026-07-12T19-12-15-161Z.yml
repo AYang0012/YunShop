@@ -1,0 +1,31 @@
+- generic [ref=e4]:
+  - heading "注册云集优选" [level=1] [ref=e5]
+  - paragraph [ref=e6]: 加入我们，发现品质好物
+  - generic [ref=e7]:
+    - generic [ref=e9]:
+      - generic [ref=e10] [cursor=pointer]: 上传头像
+      - generic [ref=e16]: 支持 jpg、png、webp 格式，不超过 5MB（选填）
+    - radiogroup [ref=e19]:
+      - generic [ref=e20]:
+        - radio "手机号注册" [checked] [ref=e21]
+        - generic [ref=e22] [cursor=pointer]: 手机号注册
+      - generic [ref=e23]:
+        - radio "邮箱注册" [ref=e24]
+        - generic [ref=e25] [cursor=pointer]: 邮箱注册
+    - textbox "请输入手机号" [ref=e30]: "13800138001"
+    - textbox "密码 (6-16位，至少两种字符组合)" [ref=e36]: Test123456
+    - textbox "确认密码" [ref=e41]: Test123456
+    - textbox "推荐人手机号（选填）" [ref=e46]
+    - generic [ref=e49] [cursor=pointer]:
+      - generic [ref=e50]:
+        - checkbox "我已阅读并同意 《用户协议》" [checked] [active]
+      - generic [ref=e52]:
+        - text: 我已阅读并同意
+        - link "《用户协议》" [ref=e53]:
+          - /url: javascript:void(0)
+    - button "注 册" [ref=e56] [cursor=pointer]
+  - generic [ref=e58]:
+    - link "已有账号？立即登录" [ref=e59] [cursor=pointer]:
+      - /url: /login
+    - link "返回首页" [ref=e60] [cursor=pointer]:
+      - /url: /

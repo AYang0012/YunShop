@@ -1,0 +1,105 @@
+{
+  "module": "用户中心",
+  "testcases": [
+    {
+      "id": "TC_UC_001",
+      "title": "个人信息页面正常加载（正向流程）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录",
+      "steps": "1.访问个人信息页面 /user/profile",
+      "expected": "1.页面正常加载\n2.显示当前头像（圆形）\n3.显示昵称、手机号、邮箱\n4.有「保存」按钮",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_002",
+      "title": "修改昵称成功（修改功能）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录\n2.当前昵称为「旧昵称」",
+      "steps": "1.清空昵称输入框\n2.输入新昵称「新昵称」\n3.点击「保存」按钮",
+      "expected": "1.修改成功，提示「更新成功」\n2.导航栏昵称同步更新为「新昵称」\n3.页面显示新昵称",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_003",
+      "title": "上传头像成功-支持jpg格式（正向流程）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录\n2.准备一张jpg格式图片（<5MB）",
+      "steps": "1.点击头像区域\n2.选择jpg图片文件\n3.等待上传完成\n4.点击「保存」",
+      "expected": "1.头像预览更新\n2.上传成功\n3.导航栏头像同步更新\n4.头像以圆形展示",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_004",
+      "title": "上传头像成功-支持png格式（格式验证）",
+      "module": "用户中心",
+      "priority": "P1",
+      "precondition": "1.准备一张png格式图片",
+      "steps": "1.点击头像区域\n2.选择png图片文件\n3.保存",
+      "expected": "1.上传成功\n2.头像更新",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_005",
+      "title": "上传头像成功-支持webp格式（格式验证）",
+      "module": "用户中心",
+      "priority": "P1",
+      "precondition": "1.准备一张webp格式图片",
+      "steps": "1.点击头像区域\n2.选择webp图片文件\n3.保存",
+      "expected": "1.上传成功\n2.头像更新",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_006",
+      "title": "修改密码成功（正向流程）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录\n2.当前密码为Abc@1234",
+      "steps": "1.访问修改密码页面 /user/password\n2.输入原密码Abc@1234\n3.输入新密码NewPass@123\n4.输入确认密码NewPass@123\n5.点击「修改密码」按钮",
+      "expected": "1.修改成功，提示「密码修改成功」\n2.需要重新登录\n3.旧密码无法登录\n4.新密码可以登录",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_007",
+      "title": "修改密码-原密码错误（反向校验）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录",
+      "steps": "1.输入错误原密码WrongPass999\n2.输入新密码NewPass@123\n3.输入确认密码NewPass@123\n4.点击「修改密码」",
+      "expected": "1.提示「原密码错误」\n2.密码不被修改\n3.仍可用旧密码登录",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_008",
+      "title": "修改密码-两次新密码不一致（一致性校验）",
+      "module": "用户中心",
+      "priority": "P1",
+      "precondition": "1.用户已登录",
+      "steps": "1.输入正确原密码Abc@1234\n2.输入新密码NewPass@123\n3.输入确认密码NewPass@456（不一致）\n4.点击「修改密码」",
+      "expected": "1.提示「两次密码不一致」\n2.密码不被修改",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_009",
+      "title": "我的订单列表查看（导航验证）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录\n2.用户有订单",
+      "steps": "1.访问「我的订单」页面 /user/orders",
+      "expected": "1.显示订单列表\n2.有状态筛选标签\n3.可点击查看订单详情",
+      "actual": ""
+    },
+    {
+      "id": "TC_UC_010",
+      "title": "收货地址管理入口（导航验证）",
+      "module": "用户中心",
+      "priority": "P0",
+      "precondition": "1.用户已登录",
+      "steps": "1.访问「收货地址」页面 /user/address",
+      "expected": "1.显示地址列表\n2.可增删改查地址\n3.可设置默认地址",
+      "actual": ""
+    }
+  ]
+}

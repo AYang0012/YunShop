@@ -25,7 +25,7 @@ public class UploadController {
     @Value("${upload.path:./src/main/resources/static/upload/}")
     private String uploadPath;
 
-    private static final Set<String> ALLOWED_EXTENSIONS = Set.of(".png", ".jpg", ".jpeg");
+    private static final Set<String> ALLOWED_EXTENSIONS = Set.of(".png", ".jpg", ".jpeg", ".webp");
     private static final long MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
     /** 上传头像 */

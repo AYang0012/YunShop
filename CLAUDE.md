@@ -74,7 +74,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 │   └── reports/                     ← Allure 结果 + 日志 + 截图
 └── docs/
     ├── YUNshop_需求文档.md           ← 完整功能需求
-    ├── api.md                       ← REST API 接口文档（47个接口，含请求/响应示例）
+    ├── api.md                       ← REST API 接口文档（46个接口，含请求/响应示例）
     ├── deployment.md                ← 全链路部署文档（环境/数据库/前后端启动）
     ├── test-framework-tutorial.md   ← 测试框架教程文档
     ├── 框架代码逻辑详解.md           ← 测试框架代码逻辑说明
