@@ -37,8 +37,32 @@
 | 🛒 购物车 | 加入购物车、数量修改、全选/批量删除、去结算 |
 | 📦 订单 | 提交订单 → 支付 → 发货 → 确认收货，完整状态流转 |
 | 👤 用户 | 注册/登录、头像上传（jpg/png/webp）、个人信息、订单管理、密码修改、收货地址 |
-| 🛡️ 后台 | 仪表盘、商品增删改查/上下架、分类/订单/会员管理（部分为占位页） |
+| 🛡️ 后台 | 仪表盘、商品增删改查/上下架、分类/订单/会员管理 |
 | 🧪 测试 | **67 条自动化用例**，Page Object 模式 + Allure 可视化报告 |
+
+## 📸 功能截图
+
+### 前台页面
+
+| 首页 | 登录 |
+|:---:|:---:|
+| ![首页](docs/screenshots/01-homepage.png) | ![登录](docs/screenshots/02-login.png) |
+| **商品列表** | **商品详情** |
+| ![商品列表](docs/screenshots/03-goods-list.png) | ![商品详情](docs/screenshots/04-goods-detail.png) |
+| **购物车** | **个人中心** |
+| ![购物车](docs/screenshots/05-cart.png) | ![个人中心](docs/screenshots/06-user-center.png) |
+| **我的订单** | **收货地址** |
+| ![我的订单](docs/screenshots/07-user-orders.png) | ![收货地址](docs/screenshots/08-user-address.png) |
+
+### 后台管理
+
+| 后台登录 | 仪表盘 |
+|:---:|:---:|
+| ![后台登录](docs/screenshots/09-admin-login.png) | ![仪表盘](docs/screenshots/10-admin-dashboard.png) |
+| **商品管理** | **分类管理** |
+| ![商品管理](docs/screenshots/11-admin-goods.png) | ![分类管理](docs/screenshots/12-admin-category.png) |
+| **订单管理** | **会员管理** |
+| ![订单管理](docs/screenshots/13-admin-order.png) | ![会员管理](docs/screenshots/14-admin-user.png) |
 
 ## 🛠 技术栈
 
