@@ -86,7 +86,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import axios from 'axios'
+import { getAdminStats } from '@/api/admin'
 
 const stats = ref({
   goodsCount: 0,
@@ -97,7 +97,7 @@ const stats = ref({
 
 const fetchStats = async () => {
   try {
-    const res = await axios.get('/api/admin/stats')
+    const res = await getAdminStats()
     if (res.data.code === 200) {
       stats.value = res.data.data
     }
